@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cross Browser Radial Button</title>
+    <style>
+      .checkbox {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="checkbox">
+      <img src="checkboxbutton1.jpg"/>
+      <input type="hidden" id="firstCheckbox" value="unticked"/>
+    </div>
+
+    <div class="checkbox">
+      <img src="checkboxbutton1.jpg"/>
+      <input type="hidden" id="secondCheckbox" value="unticked"/>
+    </div>
+    
+    <br>
+    <input type="button" id="testButton" value="Test Values"/>
+
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $(".checkbox img").click(function(){
+          $(this).next().val($(this).next().val()=="unticked"?"ticked":"unticked");
+          $(this).attr("src",($(this).next().val()=="unticked"?"checkboxbutton1.jpg":"checkboxbutton2.jpg"));
+        });
+
+        $(".checkbox img").hover(function() {
+          $(this).attr("src","checkboxbutton1hover.jpg");
+        }, function() {
+          $(this).attr("src",($(this).next().val()=="unticked"?"checkboxbutton1.jpg":"checkboxbutton2.jpg"));
+        });
+
+        $("#testButton").click(function(){
+          alert("firstCheckbox: "+$("#firstCheckbox").val()+" and secondCheckbox: "+$("#secondCheckbox").val());
+        });
+
+      });
+    </script>
+  </body>
+</html>
+
+
