@@ -1,0 +1,1 @@
+$("#competitionEntryForm").validate();
