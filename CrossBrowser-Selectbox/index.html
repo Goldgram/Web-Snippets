@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cross Browser Selectbox</title>
+    <style>
+      /*select box*/
+      .selectBoxStyle {
+        background: url(eventselectboxarrow.png) no-repeat right #D5EFEE;
+        margin:0;
+        border: 1px solid #51BBB9;
+        border-radius: 4px;
+        width:180px;
+        height:30px;
+        cursor:pointer;
+        position: relative;
+        /*z-index: 100;*/
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .selectBoxStyle div {
+        height: 20px;
+        margin: 5px 35px 5px 5px;
+        overflow: hidden;
+      }
+      .selectBoxStyle ul {
+        padding: 0;
+        list-style:none;
+        margin:0;
+        display:none;
+        position: absolute;
+        z-index: 999;
+        left:-1px;
+        top: -1px;
+        width:100%;
+        background:#D5EFEE;
+        border: 1px solid #51BBB9;
+        border-radius: 4px;
+        max-height:200px; /*oprional for scroll size*/
+        overflow:auto;
+      }
+      .selectBoxStyle ul li { 
+        padding:5px;
+        display:block;
+      }
+      .selectBoxStyle ul li:hover {
+        background-color:#51BBB9;
+        color: white;
+      }
+      .selectBoxStyle ul li, .selectBoxStyle div {
+        font-family: Arial;
+        color:#2D317B;
+        font-size: 18px;
+        line-height:20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="selectBoxCity" class="selectBox selectBoxStyle">
+      <div>All Locations</div>
+      <ul>
+        <li>All Locations</li>
+        <li>Dublin</li>
+        <li>Lodon</li>
+        <li>New York</li>
+      </ul>
+    </div>
+    
+    <br>
+  
+    <div id="selectBoxAnimalType" class="selectBox selectBoxStyle">
+      <div>All Animals</div>
+      <ul>
+        <li>All Animals</li>
+        <li>Cat</li>
+        <li>Dog</li>
+        <li>Red Panda</li>
+      </ul>
+    </div>
+    
+    <br>
+
+    <input type="button" id="testButton" value="Test Values"/>
+
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $(".selectBox ul").css({"z-index":"999"});
+        //hiding and showing sropdown
+        $(".selectBox").click(function () {
+          var isAlreadyShowing = $("#"+this.id+" ul").is(':visible');
+          $(".selectBox ul").hide();
+          if (isAlreadyShowing) {
+            $("#"+this.id+" ul").hide();
+          } else {
+            $("#"+this.id+" ul").show();
+            $("#"+this.id+" ul").scrollTop(0);
+          }
+        });
+        //selecting an option
+        $(".selectBox ul li").click(function () {
+          $("#"+this.parentElement.parentElement.id+" div").html($(this).html());
+        });
+        //close select box when click outside
+        $(document).click(function (e) {
+          if (!$(e.target).hasClass("selectBox") && !$(e.target.parentElement).hasClass("selectBox")) {
+            $(".selectBox ul").hide();
+          }
+        });
+        // hover list change colors, because css :hover bug <=ie8
+        $(".selectBoxStyle ul li").hover(
+          function() {
+            $(this).css({"background-color":"#51BBB9","color":"white"});
+          }, function() {
+            $(this).css({"background-color":"#D5EFEE","color":"#2D317B"});
+          }
+        );
+
+        $("#testButton").click(function(){
+          alert("firstSelectbox: "+$("#selectBoxCity div").text()+" and secondSelectbox: "+$("#selectBoxAnimalType div").text());
+        });
+      });
+    </script>
+  </body>
+</html>
+
+
