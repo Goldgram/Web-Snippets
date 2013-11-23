@@ -17,3 +17,11 @@ Created Cross Browser Image Checkbox (Radial) Buttons.
 -Implements using hover image as well as toggled on and off Images
 -built for multiple instances of checkboxes
 -tested cross browser,all modern browsers back as far as IE6
+
+CrossBrowser-Selectbox:
+Created Cross Browser Fully styleable Selectbox from basic elements.
+-built to be styled in any way needed
+-implements hover style change on list view
+-built for multiple instances of selectboxes
+-tested cross browser,all modern browsers back as far as IE6
+-implements additional max height on list (using modern browsers ie9+)
