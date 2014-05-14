@@ -25,3 +25,10 @@ Created Cross Browser Fully styleable Selectbox from basic elements.
 -built for multiple instances of selectboxes
 -tested cross browser,all modern browsers back as far as IE6
 -implements additional max height on list (using modern browsers ie9+)
+
+ResponsiveAndDynamic-YoutubeOverlay:
+Dynamically adds a youtube embed overlay to page with all responsive dimentions included.
+-buiit using toggle class to create and destroy embed
+-has 4 responsive steps
+-has optional attribute for additional styling and targeting if needed
+-tested cross browser,all modern browsers back as far as IE7

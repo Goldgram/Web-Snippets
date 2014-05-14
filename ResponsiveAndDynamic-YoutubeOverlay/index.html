@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Responsive And Dynamic YouTube Embed</title>
+    <style>
+      .youtubeVideoContainer .youtubeVideobackground {
+				background-color:black;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+				filter: alpha(opacity=75);
+				-moz-opacity: 0.75;
+				-khtml-opacity: 0.75;
+				opacity: 0.75;
+				height: 100%;
+				width: 100%; 
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+			}
+			.youtubeVideoContainer .youtubeVideo {
+				min-width: 300px;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 1001;
+				width:850px;
+				height:480px;
+				margin-left: -425px;
+				margin-top: -255px;
+			}
+			.youtubeVideoContainer .youtubeVideoXButton {
+				cursor: pointer;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 2000;
+				margin-left: 413px;
+				margin-top: -277px;
+			}
+			/* you tube video */
+			@media only screen and (min-width: 768px) and (max-width: 1023px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 323px; margin-top: -212px; }
+			  .youtubeVideoContainer .youtubeVideo { width:670px; height:380px;  margin-left: -335px; margin-top: -190px; }
+			}
+			@media only screen and  (min-width: 480px) and (max-width: 767px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 189px; margin-top: -164px; }
+			  .youtubeVideoContainer .youtubeVideo { width:446px; height:250px; margin-left: -223px; margin-top: -125px; }
+			}
+			@media only screen and (max-width: 479px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 116px; margin-top: -126px; }
+			  .youtubeVideoContainer .youtubeVideo { width:300px; height:170px; margin-left: -150px; margin-top: -87px; }
+			}
+    </style>
+  </head>
+  <body>
+    
+    <input type="button" value="Add Video" class="toggleYoutubeVideo" video-id="QH2-TGUlwu4" add-class-to-Video="classAddedToVideoContainer"/>
+
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script>
+      $(document).on("click",".toggleYoutubeVideo", function(event) {
+				if ($(".youtubeVideoContainer").length) {
+					$(".youtubeVideoContainer").remove();
+				} else if ($(this).attr("video-id")) {
+					var videoId = $(this).attr("video-id");
+					var additionalClass = "";
+					if ($(this).attr("add-class-to-Video")) {
+						additionalClass = $(this).attr("add-class-to-Video");
+					}
+					$.get("youtubeEmbed.html", function(data) {
+						$("body").prepend(data);
+						$('.youtubeVideoContainer .youtubeVideo').attr("src","//www.youtube.com/embed/"+videoId+"?wmode=transparent");
+						/* an additional attribute for targeted style if needed*/
+						if (additionalClass) {
+							$('.youtubeVideoContainer').addClass(additionalClass);
+						}
+					});
+				}
+			});
+    </script>
+  </body>
+</html>
+
+
+	
+
+
+
+
+
+
