@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Responsive And Dynamic YouTube Embed</title>
     <style>
-      .youtubeVideoContainer .youtubeVideobackground {
+			.youtubeVideoContainer .youtubeVideobackground {
 				background-color:black;
 				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
 				filter: alpha(opacity=75);
@@ -16,14 +16,23 @@
 				position: fixed;
 				top: 0;
 				left: 0;
-				z-index: 1000;
+				z-index: 1999;
+			}
+			.youtubeVideoContainer .youtubeVideoLoader {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin: -22px 0 0 -22px;
+				height: 44px;
+				width: 44px;
+				z-index: 2000;
 			}
 			.youtubeVideoContainer .youtubeVideo {
 				min-width: 300px;
 				position: fixed;
 				top: 50%;
 				left: 50%;
-				z-index: 1001;
+				z-index: 2001;
 				width:850px;
 				height:480px;
 				margin-left: -425px;
@@ -34,7 +43,7 @@
 				position: fixed;
 				top: 50%;
 				left: 50%;
-				z-index: 1002;
+				z-index: 2002;
 				margin-left: 413px;
 				margin-top: -277px;
 			}
@@ -54,8 +63,8 @@
     </style>
   </head>
   <body>
-    
-    <input type="button" value="Add Video" class="toggleYoutubeVideo" video-id="QH2-TGUlwu4" add-class-to-Video="classAddedToVideoContainer"/>
+
+    <input type="button" value="Add Video" class="toggleYoutubeVideo" video-id="JAUoeqvedMo" add-class-to-Video="classAddedToVideoContainer"/>
 
     <!--[if lte IE 8]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
