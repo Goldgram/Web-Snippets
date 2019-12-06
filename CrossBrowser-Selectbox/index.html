@@ -10,7 +10,7 @@
         margin:0;
         border: 1px solid #51BBB9;
         border-radius: 4px;
-        width:180px;
+        /* width:180px; */
         height:30px;
         cursor:pointer;
         position: relative;
@@ -26,6 +26,8 @@
         height: 20px;
         margin: 5px 35px 5px 5px;
         overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       .selectBoxStyle ul {
         padding: 0;
@@ -42,7 +44,7 @@
         max-height:200px; /*oprional for scroll dropdown size, currently shows scroll in modern browsers ie9+ */
         overflow:auto;
       }
-      .selectBoxStyle ul li { 
+      .selectBoxStyle ul li {
         padding:5px;
         display:block;
       }
@@ -69,9 +71,9 @@
         <li>New York</li>
       </ul>
     </div>
-    
+
     <br>
-  
+
     <div id="selectBoxAnimalType" class="selectBox selectBoxStyle">
       <div>All Animals</div>
       <ul>
@@ -82,7 +84,7 @@
         <li>Cow</li>
       </ul>
     </div>
-    
+
     <br>
     <!-- ling list example using scroll overflow, shows scroll in modern browsers ie9+-->
     <div id="selectBoxLonglistExample" class="selectBox selectBoxStyle">
@@ -105,7 +107,7 @@
         <li>Wolverine</li>
       </ul>
     </div>
-    
+
     <br>
 
     <input type="button" id="testButton" value="Test Values"/>
