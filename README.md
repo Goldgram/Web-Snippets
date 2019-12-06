@@ -2,6 +2,8 @@ Web-Snippets
 ============
 Useful web development snippets
 
+Live example: [https://willbrennan.tech/code-snippets/](https://willbrennan.tech/code-snippets/)
+
 Competition-Microsite:
 Created HTML5 Template Competition Microsite.
 -Includes SQL Creates
