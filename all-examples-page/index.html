@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Code Snippets</title>
+    <meta charset="UTF-8">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        border-bottom: 2px solid;
+        padding: 20px 0 10px 0;
+      }
+      .container {
+        box-sizing: border-box;
+        width: 440px;
+        margin: 0 auto;
+        padding: 0 20px 100px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h3 {
+        padding: 0 0 5px 0;
+        margin: 30px 0 20px 0;
+        border-bottom: 1px solid black;
+      }
+      @media only screen and (max-width: 479px) {
+				.container { width:100%; }
+			}
+
+      /* checkbox */
+      .checkbox {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+
+        display: inline;
+      }
+
+      /* select */
+      .selectBoxStyle {
+        background: url(eventselectboxarrow.png) no-repeat right #D5EFEE;
+        margin:0;
+        border: 1px solid #51BBB9;
+        border-radius: 4px;
+        /* width:180px; */
+        height:30px;
+        cursor:pointer;
+        position: relative;
+        z-index: 999;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .selectBoxStyle div {
+        height: 20px;
+        margin: 5px 35px 5px 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .selectBoxStyle ul {
+        padding: 0;
+        list-style:none;
+        margin:0;
+        display:none;
+        position: absolute;
+        left:-1px;
+        top: -1px;
+        width:100%;
+        background:#D5EFEE;
+        border: 1px solid #51BBB9;
+        border-radius: 4px;
+        max-height:200px; /*oprional for scroll dropdown size, currently shows scroll in modern browsers ie9+ */
+        overflow:auto;
+      }
+      .selectBoxStyle ul li {
+        padding:5px;
+        display:block;
+      }
+      .selectBoxStyle ul li:hover {
+        background-color:#51BBB9;
+        color: white;
+      }
+      .selectBoxStyle ul li, .selectBoxStyle div {
+        font-family: Arial;
+        color:#2D317B;
+        font-size: 18px;
+        line-height:20px;
+      }
+
+      /* youtube embed */
+      #playButton {
+        font-size: 28px;
+        padding: 4px 8px;
+        border: 3px solid black;
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+      }
+      .youtubeVideoContainer .youtubeVideobackground {
+				background-color:black;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+				filter: alpha(opacity=75);
+				-moz-opacity: 0.75;
+				-khtml-opacity: 0.75;
+				opacity: 0.75;
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1999;
+			}
+			.youtubeVideoContainer .youtubeVideoLoader {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin: -22px 0 0 -22px;
+				height: 44px;
+				width: 44px;
+				z-index: 2000;
+			}
+			.youtubeVideoContainer .youtubeVideo {
+				min-width: 300px;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 2001;
+				width:850px;
+				height:480px;
+				margin-left: -425px;
+				margin-top: -255px;
+			}
+			.youtubeVideoContainer .youtubeVideoXButton {
+				cursor: pointer;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 2002;
+				margin-left: 413px;
+				margin-top: -277px;
+			}
+			@media only screen and (min-width: 768px) and (max-width: 1023px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 323px; margin-top: -212px; }
+			  .youtubeVideoContainer .youtubeVideo { width:670px; height:380px;  margin-left: -335px; margin-top: -190px; }
+			}
+			@media only screen and  (min-width: 480px) and (max-width: 767px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 189px; margin-top: -164px; }
+			  .youtubeVideoContainer .youtubeVideo { width:446px; height:250px; margin-left: -223px; margin-top: -125px; }
+			}
+			@media only screen and (max-width: 479px) {
+				.youtubeVideoContainer .youtubeVideoXButton { margin-left: 116px; margin-top: -126px; }
+			  .youtubeVideoContainer .youtubeVideo { width:300px; height:170px; margin-left: -150px; margin-top: -87px; }
+			}
+    </style>
+  </head>
+  <body>
+    <h1>Code Snippets</h1>
+    <div class="container">
+
+      <h3>Checkboxes</h3>
+
+      <!-- checkbox -->
+      <div class="checkbox">
+        <img src="checkboxbutton1.jpg"/>
+        <input type="hidden" id="firstCheckbox" value="unticked"/>
+      </div>
+
+      <div class="checkbox">
+        <img src="checkboxbutton1.jpg"/>
+        <input type="hidden" id="secondCheckbox" value="unticked"/>
+      </div>
+
+      <br>
+      <br>
+
+      <input type="button" id="testButton1" value="Test Checkboxes"/>
+
+      <h3>Selects</h3>
+
+      <!-- select -->
+      <div id="selectBoxCity" class="selectBox selectBoxStyle">
+        <div>All Locations</div>
+        <ul>
+          <li>All Locations</li>
+          <li>Dublin</li>
+          <li>Lodon</li>
+          <li>New York</li>
+        </ul>
+      </div>
+
+      <br>
+
+      <div id="selectBoxAnimalType" class="selectBox selectBoxStyle">
+        <div>All Animals</div>
+        <ul>
+          <li>All Animals</li>
+          <li>Cat</li>
+          <li>Dog</li>
+          <li>Red Panda</li>
+          <li>Cow</li>
+        </ul>
+      </div>
+
+      <br>
+
+      <div id="selectBoxLonglistExample" class="selectBox selectBoxStyle">
+        <div>All Superheros</div>
+        <ul>
+          <li>All Superheros</li>
+          <li>Aquaman</li>
+          <li>Batman</li>
+          <li>Captain America</li>
+          <li>Green Lantern</li>
+          <li>Iron Fist</li>
+          <li>Judge Dredd</li>
+          <li>Martian Manhunter</li>
+          <li>Nick Fury</li>
+          <li>Nightwing</li>
+          <li>Spider-Man</li>
+          <li>Superman</li>
+          <li>Storm</li>
+          <li>The Flash</li>
+          <li>Wolverine</li>
+        </ul>
+      </div>
+
+      <br>
+
+      <input type="button" id="testButton2" value="Test Selects"/>
+
+      <h3>YouTube Pop-up</h3>
+
+      <input type="button" value="Play Video" id="playButton" class="toggleYoutubeVideo" video-id="XmI7WKrAtqs" add-class-to-Video="classAddedToVideoContainer"/>
+
+    </div>
+
+    <!--[if lte IE 8]>
+      <script src="html5shiv-3.7.3.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="jquery-3.4.1.js"></script>
+    <script>
+      /* checkbox */
+      $(document).ready(function() {
+        $(".checkbox img").click(function(){
+          $(this).next().val($(this).next().val()=="unticked"?"ticked":"unticked");
+          $(this).attr("src",($(this).next().val()=="unticked"?"checkboxbutton1.jpg":"checkboxbutton2.jpg"));
+        });
+
+        $(".checkbox img").hover(function() {
+          $(this).attr("src","checkboxbutton1hover.jpg");
+        }, function() {
+          $(this).attr("src",($(this).next().val()=="unticked"?"checkboxbutton1.jpg":"checkboxbutton2.jpg"));
+        });
+
+        $("#testButton1").click(function(){
+          alert("firstCheckbox: "+$("#firstCheckbox").val()+"\nsecondCheckbox: "+$("#secondCheckbox").val());
+        });
+      });
+
+      /* select */
+      $( document ).ready(function() {
+        //hiding and showing sropdown
+        $(".selectBox").click(function () {
+          var isAlreadyShowing = $("#"+this.id+" ul").is(':visible');
+          $(".selectBox ul").hide();
+          $(".selectBox").css({"z-index":"999"});
+          if (isAlreadyShowing) {
+            $("#"+this.id+" ul").hide();
+          } else {
+            $(this).css({"z-index":"1000"});
+            $("#"+this.id+" ul").show();
+            $("#"+this.id+" ul").scrollTop(0);
+          }
+        });
+        //selecting an option
+        $(".selectBox ul li").click(function () {
+          $("#"+this.parentElement.parentElement.id+" div").html($(this).html());
+        });
+        //close select box when click outside
+        $(document).click(function (e) {
+          if (!$(e.target).hasClass("selectBox") && !$(e.target.parentElement).hasClass("selectBox")) {
+            $(".selectBox ul").hide();
+          }
+        });
+        // hover list change colors, because css :hover bug <=ie8
+        $(".selectBoxStyle ul li").hover(
+          function() {
+            $(this).css({"background-color":"#51BBB9","color":"white"});
+          }, function() {
+            $(this).css({"background-color":"#D5EFEE","color":"#2D317B"});
+          }
+        );
+
+        $("#testButton2").click(function(){
+          alert("firstSelectbox: "+$("#selectBoxCity div").text()+"\nsecondSelectbox: "+$("#selectBoxAnimalType div").text()+"\nthridSelectbox: "+$("#selectBoxLonglistExample div").text());
+        });
+      });
+
+      /* youtube embed*/
+      $(document).on("click",".toggleYoutubeVideo", function(event) {
+				if ($(".youtubeVideoContainer").length) {
+					$(".youtubeVideoContainer").remove();
+				} else if ($(this).attr("video-id")) {
+					var videoId = $(this).attr("video-id");
+					/* an additional attribute for targeted style if needed*/
+					var additionalClass = $(this).attr("add-class-to-Video") ? $(this).attr("add-class-to-Video") : "";
+					$.get("youtubeEmbed.html", function(data) {
+						$("body").prepend(data);
+						$(".youtubeVideoContainer .youtubeVideo").attr("src","//www.youtube.com/embed/"+videoId+"?wmode=transparent");
+						$(".youtubeVideoContainer").addClass(additionalClass);
+					});
+				}
+			});
+    </script>
+  </body>
+</html>
+
+
